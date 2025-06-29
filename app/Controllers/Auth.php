@@ -8,7 +8,7 @@ class Auth extends BaseController
 {
     public function register()
     {
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
                 'username' => 'required|min_length[3]|max_length[100]|is_unique[users.username]',
                 'email' => 'required|valid_email|is_unique[users.email]',
@@ -30,9 +30,10 @@ class Auth extends BaseController
         }
         return view('auth/register');
     }
+
     public function login()
     {
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
                 'email' => 'required|valid_email',
                 'password' => 'required',
@@ -56,6 +57,7 @@ class Auth extends BaseController
         }
         return view('auth/login');
     }
+
     public function logout()
     {
         session()->destroy();
