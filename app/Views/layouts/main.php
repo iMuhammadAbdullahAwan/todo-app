@@ -14,10 +14,10 @@
             font-family: 'Segoe UI', sans-serif;
         }
 
-        .auth-card {
+        .card-custom {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-custom {
@@ -28,11 +28,30 @@
         .btn-custom:hover {
             background: #4338ca;
         }
+
+        .task-row:hover {
+            background: #f9fafb;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/tasks">To-Do App</a>
+            <div class="navbar-nav ms-auto">
+                <?php if (session()->get('isLoggedIn')): ?>
+                    <span class="navbar-text me-3">Welcome, <?= session()->get('username') ?></span>
+                    <a href="/tasks/create" class="btn btn-custom me-2">Add Task</a>
+                    <a href="/logout" class="btn btn-outline-light">Logout</a>
+                <?php else: ?>
+                    <a href="/login" class="btn btn-outline-light me-2">Login</a>
+                    <a href="/register" class="btn btn-custom">Register</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
         <?php if (session()->getFlashdata('success')): ?>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script>
