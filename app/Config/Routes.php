@@ -16,10 +16,10 @@ $routes->get('/logout', 'Auth::logout');
 
 $routes->group('tasks', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'TaskController::index');
-    $routes->get('/create', 'TaskController::create');
-    $routes->post('/create', 'TaskController::create', ['method' => 'post']);
-    $routes->get('/edit/(:num)', 'TaskController::edit/$1');
-    $routes->post('/edit/(:num)', 'TaskController::edit/$1');
-    $routes->get('/delete/(:num)', 'TaskController::delete/$1');
-    $routes->get('/toggle/(:num)', 'TaskController::toggleStatus/$1');
+    $routes->get('create', 'TaskController::create');
+    $routes->post('create', 'TaskController::create', ['method' => 'post']);
+    $routes->get('edit/(:num)', 'TaskController::edit/$1');
+    $routes->post('edit/(:num)', 'TaskController::edit/$1');
+    $routes->get('delete/(:num)', 'TaskController::delete/$1');
+    $routes->get('toggle/(:num)', 'TaskController::toggleStatus/$1');
 });

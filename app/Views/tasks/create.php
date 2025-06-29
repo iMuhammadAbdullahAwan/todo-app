@@ -23,7 +23,7 @@
             <label for="description" class="form-label">Description</label>
             <textarea name="description" class="form-control" id="description" rows="4"><?= old('description') ?></textarea>
         </div>
-        <button type="submit" class="btn btn-custom>Create Task</button>
+        <button type="submit" class="btn btn-custom">Create Task</button>
     </form>
 </div>
 <?= $this->endsection() ?>
