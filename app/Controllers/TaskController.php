@@ -47,7 +47,7 @@ class TaskController extends BaseController
     {
         $this->checkLogin();
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
                 'title' => 'required|min_length[3]|max_length[255]',
                 'category_id' => 'required|numeric',
@@ -81,7 +81,7 @@ class TaskController extends BaseController
             return redirect()->to('/tasks')->with('error', 'Task not found.');
         }
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
                 'title' => 'required|min_length[3]|max_length[255]',
                 'category_id' => 'required|numeric',
